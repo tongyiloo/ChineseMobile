@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ChineseMobile</string>
+    <string name="new_user_sign_up">New User? <b><u>Sign Up</u></b></string><!--make SignUp bold-->
 </resources>
