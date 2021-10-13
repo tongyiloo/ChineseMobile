@@ -1,4 +1,4 @@
-package com.example.chinesemobile;
+package com.chinesemobile.chinesemobile;
 
 import android.content.Context;
 

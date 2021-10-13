@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "926444474003",
+    "project_id": "chinesemobile-843c1",
+    "storage_bucket": "chinesemobile-843c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926444474003:android:5028a332e000a4cfdb0766",
+        "android_client_info": {
+          "package_name": "com.chinesemobile.chinesemobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926444474003-be0t7u37l1hr02r81504og37lsbcel4d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chinesemobile.chinesemobile",
+            "certificate_hash": "d498ec59747a822e500880c62322e12661fbef83"
+          }
+        },
+        {
+          "client_id": "926444474003-uve56rtsfng2qrub0d2q3eubta0bsq5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDpLkfC4Q_Ba7hHtXqsxveCZVT72DmA1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926444474003-uve56rtsfng2qrub0d2q3eubta0bsq5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
