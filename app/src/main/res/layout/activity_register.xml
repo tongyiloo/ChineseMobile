@@ -81,9 +81,10 @@
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_person_gray"
                     android:drawablePadding="10dp"
-                    android:hint="Email"
+                    android:hint="Name"
                     android:inputType="textPersonName|textCapWords"
                     android:padding="15dp"
+
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray01"/>
 
@@ -128,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_edittext01"
-                    android:drawableStart="@drawable/ic_email_gray"
+                    android:drawableStart="@drawable/ic_lock_gray"
                     android:drawablePadding="10dp"
                     android:hint="Password"
                     android:inputType="textPassword"
@@ -153,7 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape_edittext01"
-                    android:drawableStart="@drawable/ic_email_gray"
+                    android:drawableStart="@drawable/ic_lock_gray"
                     android:drawablePadding="10dp"
                     android:hint="Confirm Password"
                     android:inputType="textPassword"
@@ -175,6 +176,16 @@
                 app:backgroundTint="@null"
                 android:text="Register"
                 android:textColor="@color/white"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/registerBtn"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true" />
+
+
 
         </RelativeLayout>
 

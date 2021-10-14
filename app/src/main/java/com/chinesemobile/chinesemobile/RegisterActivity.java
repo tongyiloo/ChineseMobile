@@ -32,7 +32,9 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     //progress dialog
-    private ProgressDialog progressDialog;
+    //private ProgressDialog progressDialog;
+
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,11 @@ public class RegisterActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         //setup progress dialog
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Loading...");
-        progressDialog.setCanceledOnTouchOutside(false);
+        //progressDialog = new ProgressDialog(this);
+        //progressDialog.setTitle("Loading...");
+        //progressDialog.setCanceledOnTouchOutside(false);
+
+        binding.progressBar.setVisibility(View.GONE);
 
         //handle click, go back
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
@@ -94,13 +98,16 @@ public class RegisterActivity extends AppCompatActivity {
         else{
             // all data is validate, begin creating account
             createUserAccount();
+
         }
     }
 
     private void createUserAccount() {
         //show progress
-        progressDialog.setMessage("Creating account...");
-        progressDialog.show();
+        //progressDialog.setMessage("Creating account...");
+        //progressDialog.show();
+        binding.progressBar.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "Creating account", Toast.LENGTH_SHORT).show();
 
         //create user
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -114,15 +121,15 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(Exception e) {
-                        progressDialog.dismiss();
+                        //progressDialog.dismiss();
+                        binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     private void updateUserInfo() {
-        progressDialog.setMessage("Saving User Information");
-
+        //progressDialog.setMessage("Saving User Information");
         //timestamp
         long timestamp = System.currentTimeMillis();
 
@@ -146,8 +153,9 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         // data added to db
-                        progressDialog.dismiss();
-                        Toast.makeText(RegisterActivity.this, "Account created successffully", Toast.LENGTH_SHORT).show();
+                        //progressDialog.dismiss();
+                        binding.progressBar.setVisibility(View.GONE);
+                        Toast.makeText(RegisterActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                         //since user account is create so start dashboard of user
                         startActivity(new Intent(RegisterActivity.this, DashboardUserActivity.class));
                         finish();
@@ -156,7 +164,8 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(Exception e) {
-                        progressDialog.dismiss();
+                        //progressDialog.dismiss();
+                        binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
