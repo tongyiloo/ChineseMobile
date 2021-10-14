@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseMobile">
-        <activity android:name=".DashboardAdminActivity"></activity>
+        <activity android:name=".VocabularyCategoryAddActivity"></activity>
+        <activity android:name=".DashboardAdminActivity" />
         <activity android:name=".DashboardUserActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />

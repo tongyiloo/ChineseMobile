@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class DashboardAdminActivity extends AppCompatActivity {
 
-    //view bindding
+    //view binding
     private ActivityDashboardAdminBinding binding;
 
     //firebase
@@ -33,6 +33,14 @@ public class DashboardAdminActivity extends AppCompatActivity {
             public void onClick(View v) {
                 firebaseAuth.signOut();
                 checkUser();
+            }
+        });
+
+        //handle click, start category add screen
+        binding.addCatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardAdminActivity.this, VocabularyCategoryAddActivity.class));
             }
         });
     }

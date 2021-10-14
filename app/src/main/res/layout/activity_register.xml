@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/dark_orange"
     tools:context=".RegisterActivity">
 
 
     <RelativeLayout
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/shape_toolbar01">
+        android:layout_height="match_parent"
+        >
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -61,18 +61,21 @@
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="255dp">
+        android:layout_marginTop="260dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
             <!--Name-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nameTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintEnabled="false">
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:hintEnabled="false"
+                >
 
                 <EditText
                     android:id="@+id/nameEt"
@@ -84,9 +87,9 @@
                     android:hint="Name"
                     android:inputType="textPersonName|textCapWords"
                     android:padding="15dp"
-
                     android:textColor="@color/black"
-                    android:textColorHint="@color/gray01"/>
+                    android:textColorHint="@color/gray01"
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/nameTil"
                 android:layout_marginTop="5dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:hintEnabled="false">
 
                 <EditText
@@ -121,6 +125,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 android:layout_below="@id/emailTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="5dp"
                 app:hintEnabled="false">
 
@@ -146,6 +151,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 android:layout_below="@id/passwordTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_marginTop="5dp"
                 app:hintEnabled="false">
 
@@ -174,6 +180,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
                 app:backgroundTint="@null"
+                android:textSize="18sp"
                 android:text="Register"
                 android:textColor="@color/white"/>
 
@@ -183,7 +190,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/registerBtn"
                 android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:indeterminateTint="@color/white"/>
+                <!--android:indeterminateTintMode="src_in"-->
 
 
 

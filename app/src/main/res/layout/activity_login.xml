@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/dark_orange"
     tools:context=".LoginActivity">
 
 
     <RelativeLayout
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@drawable/shape_toolbar01">
+        android:layout_height="300dp">
+        <!--android:background="@drawable/shape_toolbar01"-->
 
         <TextView
             android:id="@+id/logoName"
@@ -40,7 +40,7 @@
             android:layout_below="@+id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="Please Login"
+            android:text="Login Here"
             android:textColor="@color/white"
             android:fontFamily="@font/roboto_medium"
             android:textSize="24sp"/>
@@ -64,6 +64,7 @@
                 android:id="@+id/emailTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:hintEnabled="false">
 
                 <EditText
@@ -89,6 +90,7 @@
                 app:passwordToggleEnabled="true"
                 android:layout_below="@id/emailTil"
                 android:layout_marginTop="10dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:hintEnabled="false">
 
                 <EditText
@@ -102,6 +104,7 @@
                     android:inputType="textPassword"
                     android:padding="15dp"
                     android:textColor="@color/black"
+
                     android:textColorHint="@color/gray01"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -116,7 +119,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:text="Forgot Password"
-                android:textColor="@color/gray02"/>
+                android:textColor="@color/white"/>
 
             <!--Login Button-->
             <Button
@@ -126,8 +129,9 @@
                 android:layout_below="@id/forgotTv"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
-                app:backgroundTint="@null"
+                app:backgroundTint="@color/light_orange"
                 android:text="Login"
+                android:textSize="18sp"
                 android:textColor="@color/white"/>
 
             <ProgressBar
@@ -136,7 +140,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/loginBtn"
                 android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:indeterminateTint="@color/white"/>
 
 
         </RelativeLayout>
@@ -151,9 +156,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:padding="30dp"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:text="@string/new_user_sign_up"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>

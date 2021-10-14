@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VocabularyCategoryAddActivity">
+
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/shape_toolbar02">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back_white"
+            android:background="@android:color/transparent"
+            android:layout_margin="10dp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Add a new Category"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="24sp"/>
+
+    </RelativeLayout>
+
+    <!--Name-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/categoryTil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:hintEnabled="false"
+        app:boxStrokeColor="@color/dark_orange"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="100dp">
+
+        <EditText
+            android:id="@+id/categoryEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edittext01"
+            android:drawableStart="@drawable/ic_category_gray01"
+            android:drawablePadding="10dp"
+            android:hint="Category Title"
+            android:inputType="textPersonName|textCapWords"
+            android:padding="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray02"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Submit Button-->
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categoryTil"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/shape_button01"
+        app:backgroundTint="@null"
+        android:textSize="18sp"
+        android:text="Submit"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/white"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submitBtn"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:indeterminateTint="@color/dark_orange"/>
+
+</RelativeLayout>
