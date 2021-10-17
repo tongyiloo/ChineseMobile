@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray05"
     tools:context=".DashboardAdminActivity">
-    
+
+    <!--Toolbar-->
     <RelativeLayout
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
@@ -44,6 +46,33 @@
 
     </RelativeLayout>
 
+    <!--Search-->
+    <EditText
+        android:id="@+id/searchEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarRL"
+        android:hint="Search"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_search_gray"
+        android:background="@drawable/shape_edittext03"
+        android:textColorHint="@color/gray01"/>
+
+    <!--Categories-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRv"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/row_category"
+        android:layout_below="@id/searchEt"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_above="@id/btmAdmin"/>
+
+
     <LinearLayout
         android:id="@+id/btmAdmin"
         android:layout_width="match_parent"
@@ -51,7 +80,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:orientation="horizontal">
 
         <Button
