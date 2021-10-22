@@ -86,6 +86,13 @@ public class DashboardAdminActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardAdminActivity.this, VocabularyCategoryAddActivity.class));
             }
         });
+
+        binding.addVobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DashboardAdminActivity.this, VocabAddActivity.class));
+            }
+        });
     }
 
     private void loadCategories() {
