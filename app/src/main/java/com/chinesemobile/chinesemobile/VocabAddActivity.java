@@ -1,5 +1,7 @@
 package com.chinesemobile.chinesemobile;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -77,7 +79,8 @@ public class VocabAddActivity extends AppCompatActivity {
         binding.attachBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imgPickIntent();
+                //imgPickIntent();
+                mGetContent.launch("image/*");
             }
         });
 
@@ -268,14 +271,14 @@ public class VocabAddActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void imgPickIntent() {
-        Log.d(TAG,"imgPickIntent: Starting pdf pick Intent");
-
-        Intent intent = new Intent();
-        intent.setType("image/jpeg"); // 19:16
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Image"), IMG_PICK_CODE);
-    }
+//    private void imgPickIntent() {
+//        Log.d(TAG,"imgPickIntent: Starting pdf pick Intent");
+//
+//        Intent intent = new Intent();
+//        intent.setType("image/jpeg"); // 19:16
+//        intent.setAction(Intent.ACTION_GET_CONTENT);
+//        startActivityForResult(Intent.createChooser(intent, "Select Image"), IMG_PICK_CODE);
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -294,4 +297,16 @@ public class VocabAddActivity extends AppCompatActivity {
             Toast.makeText(this, "cancelled picking img", Toast.LENGTH_SHORT).show();
         }
     }
+
+    //start an activity for result and get the result from the activity select image, the result will set to imageUri
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(new ActivityResultContracts.GetContent(),
+            result -> {
+                //this result is the result of uri
+                if (result!=null){
+                    //imgview.setImageURI(result);
+                    //result will be set in uri
+                    imgUri = result;
+                }
+            });
+
 }
