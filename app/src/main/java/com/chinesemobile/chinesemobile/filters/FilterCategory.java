@@ -1,6 +1,9 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.filters;
 
 import android.widget.Filter;
+
+import com.chinesemobile.chinesemobile.adapters.AdapterCategory;
+import com.chinesemobile.chinesemobile.models.ModelCategory;
 
 import java.util.ArrayList;
 

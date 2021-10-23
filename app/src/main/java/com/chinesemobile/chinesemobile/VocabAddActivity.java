@@ -11,7 +11,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +20,6 @@ import com.chinesemobile.chinesemobile.databinding.ActivityVocabAddBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.tabs.TabItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +42,7 @@ public class VocabAddActivity extends AppCompatActivity {
 
 
     //arraylist to hold vocab categories
-    private ArrayList<ModelCategory> categoryArrayList;
+    private ArrayList<String> categoryTitleArrayList, categoryIdArrayList;
 
     //uri of the picke img
     private Uri imgUri = null;
@@ -60,6 +58,8 @@ public class VocabAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityVocabAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.progressBar.setVisibility(View.GONE);
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
@@ -103,7 +103,7 @@ public class VocabAddActivity extends AppCompatActivity {
         });
     }
 
-    private String titleEng="", titleCn="", pinyin="", category = "";
+    private String titleEng="", titleCn="", pinyin="";
 
     private void validateData() {
         //Step 1: validate data
@@ -113,7 +113,7 @@ public class VocabAddActivity extends AppCompatActivity {
         titleEng = binding.titleEnglishEt.getText().toString().trim();
         titleCn = binding.chineseEt.getText().toString().trim();
         pinyin = binding.pinyinEt.getText().toString().trim();
-        category = binding.categoryTv.getText().toString().trim();
+        //category = binding.categoryTv.getText().toString().trim();
 
         //validate data
         if (TextUtils.isEmpty(titleEng)){
@@ -125,7 +125,7 @@ public class VocabAddActivity extends AppCompatActivity {
         else if (TextUtils.isEmpty(pinyin)){
             Toast.makeText(this,"Enter the pinyin...", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(titleCn)){
+        else if (TextUtils.isEmpty(selectedCategoryTitle)){
             Toast.makeText(this,"Pick the category ...", Toast.LENGTH_SHORT).show();
         }
         else if (imgUri==null){
@@ -139,6 +139,7 @@ public class VocabAddActivity extends AppCompatActivity {
 
     private void uploadVocabToStorage() {
         //Step 2: Upload Vocab to firebase storage
+        binding.progressBar.setVisibility(View.VISIBLE);
         Log.d(TAG,"uploadVocabToStorage: uploading to storage...");
 
         Toast.makeText(this,"Uploading vocabulary details...", Toast.LENGTH_SHORT).show();
@@ -191,7 +192,7 @@ public class VocabAddActivity extends AppCompatActivity {
         hashMap.put("english", ""+titleEng);
         hashMap.put("chinese", ""+titleCn);
         hashMap.put("pinyin", ""+pinyin);
-        hashMap.put("category", category);
+        hashMap.put("categoryId", selectedCategoryId);
         hashMap.put("url", ""+uploadedVocabUrl);
         hashMap.put("timestamp", timestamp);
 
@@ -202,6 +203,7 @@ public class VocabAddActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        binding.progressBar.setVisibility(View.GONE);
                         Log.d(TAG, "OnSuccess: successfully uploaded");
                         Toast.makeText(VocabAddActivity.this,"Successfully uploaded...", Toast.LENGTH_SHORT).show();
                     }
@@ -209,6 +211,7 @@ public class VocabAddActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        binding.progressBar.setVisibility(View.GONE);
                         Log.d(TAG, "onFailure: Failed to upload to db due to "+e.getMessage());
                         Toast.makeText(VocabAddActivity.this, "Failed to upload to db due to "+e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
@@ -218,21 +221,26 @@ public class VocabAddActivity extends AppCompatActivity {
 
     private void loadVocabCategories() {
         Log.d(TAG, "loadVocabCategories: Loading img categories");
-        categoryArrayList = new ArrayList<>();
+        categoryTitleArrayList = new ArrayList<>();
+        categoryIdArrayList = new ArrayList<>();
 
         //db reference to load categories.. db > Categories
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                categoryArrayList.clear();//clear before adding data
+                categoryTitleArrayList.clear();//clear before adding data
                 for (DataSnapshot ds: snapshot.getChildren()){
-                    //get data
-                    ModelCategory model = ds.getValue(ModelCategory.class);
-                    //add to arraylist
-                    categoryArrayList.add(model);
 
-                    Log.d(TAG, "onDataChange: "+model.getCategory());
+                    //get id and title of category
+                    String categoryId = ""+ds.child("id").getValue();
+                    String categoryTitle = ""+ds.child("category").getValue();
+
+                    //add to respective arraylists
+                    categoryTitleArrayList.add(categoryTitle);
+                    categoryIdArrayList.add(categoryId);
+
+
                 }
             }
 
@@ -243,14 +251,17 @@ public class VocabAddActivity extends AppCompatActivity {
         });
     }
 
+    //selected category id and category id
+    private String selectedCategoryId, selectedCategoryTitle;
+
     private void categoryPick() {
         //first we need to get categories from firebase
         Log.d(TAG, "categoryPickDialog: showing category pick dialog");
 
         //get array of categories from arraylist
-        String[] categoriesArray = new String[categoryArrayList.size()];
-        for (int i=0; i<categoryArrayList.size();i++){
-            categoriesArray[i] = categoryArrayList.get(i).getCategory();
+        String[] categoriesArray = new String[categoryTitleArrayList.size()];
+        for (int i = 0; i< categoryTitleArrayList.size(); i++){
+            categoriesArray[i] = categoryTitleArrayList.get(i);
         }
 
         //alert dialog
@@ -261,11 +272,13 @@ public class VocabAddActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         //handle item click
                         //get clicked item from list
-                        String category = categoriesArray[which];
-                        //set to category text view
-                        binding.categoryTv.setText(category);
+                        selectedCategoryTitle = categoryTitleArrayList.get(which);
+                        selectedCategoryId = categoryIdArrayList.get(which);
 
-                        Log.d(TAG, "onClick: Selected Categories: "+category);
+                        //set to category text view
+                        binding.categoryTv.setText(selectedCategoryTitle);
+
+                        Log.d(TAG, "onClick: Selected Categories: "+selectedCategoryId+" "+selectedCategoryTitle);
                     }
                 })
                 .show();

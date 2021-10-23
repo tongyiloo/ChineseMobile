@@ -1,4 +1,4 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.models;
 
 public class ModelCategory {
     //make sure to use same spelling for model variables in firebase

@@ -164,5 +164,14 @@
         android:background="@drawable/shape_button01"
         android:textColor="@color/white"/>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submitBtn"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:indeterminateTint="@color/dark_orange"/>
+
 
 </RelativeLayout>

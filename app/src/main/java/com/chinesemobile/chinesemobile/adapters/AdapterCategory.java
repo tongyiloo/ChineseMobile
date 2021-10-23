@@ -1,4 +1,4 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chinesemobile.chinesemobile.filters.FilterCategory;
+import com.chinesemobile.chinesemobile.models.ModelCategory;
 import com.chinesemobile.chinesemobile.databinding.RowCategoryBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

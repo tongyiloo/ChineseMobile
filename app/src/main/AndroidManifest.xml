@@ -8,10 +8,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".MyApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseMobile">
-        <activity android:name=".VocabAddActivity"></activity>
+        <activity android:name=".VocabListAdminActivity"></activity>
+        <activity android:name=".VocabAddActivity" />
         <activity android:name=".VocabularyCategoryAddActivity" />
         <activity android:name=".DashboardAdminActivity" />
         <activity android:name=".DashboardUserActivity" />
