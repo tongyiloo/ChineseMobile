@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:text="Add a new Category"
+            android:text="Add a new Vocabulary"
             android:textColor="@color/white"
             android:fontFamily="@font/roboto_medium"
             android:textSize="24sp"/>

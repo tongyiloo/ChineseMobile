@@ -3,6 +3,7 @@ package com.chinesemobile.chinesemobile.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chinesemobile.chinesemobile.MyApplication;
+import com.chinesemobile.chinesemobile.VocabEditActivity;
 import com.chinesemobile.chinesemobile.databinding.RowVocabAdminBinding;
 import com.chinesemobile.chinesemobile.filters.FilterVocabularyAdmin;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
@@ -102,6 +104,10 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
     }
 
     private void moreOptionDialog(ModelVocabulary model, HolderVocabAdmin holder) {
+
+        String vocabularyId = model.getId();
+        String vocabularyUrl = model.getUrl(); //7. 22:22
+
         //options to show in dialog
         String[] options = {"Edit", "Delete"};
 
@@ -114,7 +120,9 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
                         //handle dialog option click
                         if (which==0){
                             //Edit Clicked, open new activity to edit book info
-
+                            Intent intent = new Intent(context, VocabEditActivity.class);
+                            intent.putExtra("vocabularyId", vocabularyId);
+                            context.startActivity(intent);
 
                         }
                         else if (which==1)
@@ -133,6 +141,7 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
     private void deleteVocabulary(ModelVocabulary model, HolderVocabAdmin holder) {
         String vocabularyId = model.getId();
         String vocabularyUrl = model.getUrl();
+        String vocabularyEnTitle = model.getEnglish();
 
         Log.d(TAG, "deleteVocabulary: Deleting...");
 

@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_purple"
     tools:context=".VocabEditActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/shape_toolbar02">
+
+        <!--Back button-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white"/>
+
+        <!--Title-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Edit Vocabulary Information"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="24sp"/>
+
+    </RelativeLayout>
+
+    <!--Scrollview-->
+    <ScrollView
+        android:layout_marginTop="105dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Input Vocab in English-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/titleEnglishTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/titleEnglishEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext_04"
+                    android:drawableStart="@drawable/ic_text_gray01"
+                    android:drawablePadding="10dp"
+                    android:hint="Vocabulary in English 英文"
+                    android:padding="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/gray02"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Input Vocab in Chinese-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/chineseTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/titleEnglishTil"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/chineseEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext_04"
+                    android:drawableStart="@drawable/ic_translate_gray"
+                    android:drawablePadding="10dp"
+                    android:hint="Vocabulary in Chinese 中文"
+                    android:padding="15dp"
+                    android:gravity="top"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray02"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Input Vocab in Pinyin-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pinyinTil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/chineseTil"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/pinyinEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_edittext_04"
+                    android:drawableStart="@drawable/ic_text_gray01"
+                    android:drawablePadding="10dp"
+                    android:hint="Pinyin 拼音"
+                    android:padding="15dp"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray02"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--Pick category from dialog-->
+            <TextView
+                android:id="@+id/categoryTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pinyinTil"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edittext_04"
+                android:drawableStart="@drawable/ic_category_gray01"
+                android:drawableEnd="@drawable/ic_down_gray"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:hint="Vocabulary Category"
+                android:padding="15dp"
+                android:textColorHint="@color/gray02"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <!--Button Upload-->
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/categoryTv"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:text="Update"
+                android:textSize="16sp"
+                android:background="@drawable/shape_button01"
+                android:textColor="@color/white"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/submitBtn"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:indeterminateTint="@color/dark_orange"/>
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

@@ -31,7 +31,7 @@ public class FilterVocabularyAdmin extends Filter {
             constraint = constraint.toString().toUpperCase();
             ArrayList<ModelVocabulary> filteredModels = new ArrayList<>();
             for (int i=0; i<filterList.size(); i++){
-                //validddate
+                //validate
                 if (filterList.get(i).getEnglish().toUpperCase().contains(constraint)){
                     //add to filtered list
                     filteredModels.add(filterList.get(i));
