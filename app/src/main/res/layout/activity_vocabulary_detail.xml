@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_purple"
+    tools:context=".VocabularyDetailActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar02">
+
+        <!--BackBtn-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white"/>
+
+        <!--toolbar title-->
+        <TextView
+            android:id="@+id/categoryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/backBtn"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="Category"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+    <!--All content under scrollview-->
+    <ScrollView
+        android:layout_below="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!---->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/vocabImgView"-->
+<!--                    android:layout_marginTop="50dp"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="200dp"-->
+<!--                    android:background="@drawable/shape_imgview01"-->
+<!--                    android:src="@drawable/ic_vocabimg_gray"/>-->
+<!--                <View-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/shape_rect01"/>-->
+                <!--vocab image-->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/vocabImgView"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_vocabimg_gray"
+
+                    app:shapeAppearance="@style/styleRoundedCornersImage"
+                    />
+
+                <TextView
+                    android:id="@+id/cnTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vocabImgView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="24sp"
+                    android:text="华语/中文"/>
+
+                <TextView
+                    android:id="@+id/pinyinTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cnTitleTv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="20sp"
+                    android:text="Pinyin/Pronunciation"/>
+
+                <TextView
+                    android:id="@+id/enTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pinyinTv"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="18sp"
+                    android:text="English Meaning"/>
+
+
+                <ImageButton
+                    android:id="@+id/speakBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/ic_audio01_white"
+                    android:background="@drawable/shape_circle"
+                    android:layout_below="@id/enTitleTv"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp"
+                    />
+
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

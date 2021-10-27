@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chinesemobile.chinesemobile.MyApplication;
 import com.chinesemobile.chinesemobile.VocabEditActivity;
+import com.chinesemobile.chinesemobile.VocabularyDetailActivity;
 import com.chinesemobile.chinesemobile.databinding.RowVocabAdminBinding;
 import com.chinesemobile.chinesemobile.filters.FilterVocabularyAdmin;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
+import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -75,9 +77,12 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
 
         //get data
         ModelVocabulary model = vocabularyArrayList.get(position);
+        String vocabularyId = model.getId();
+        String categoryId = model.getCategoryId();
         String enTitle = model.getEnglish();
         String cnTitle = model.getChinese();
         String pinyin = model.getPinyin();
+        String vocabularyUrl = model.getUrl();
         long timestamp = model.getTimestamp();
 
         //need to convert timestamp to dd/mm/yyyy format
@@ -89,9 +94,14 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
         holder.pinyinTv.setText(pinyin);
 
         //load further details like category, img from url
-        loadCategory(model, holder);
-        loadImgFromUrl(model, holder);
-        //loadImgSize(model, holder);
+
+        //MyApplication.loadCategories 08. 13:32
+//        MyApplication.loadCategory(
+//                ""+categoryId,
+//                holder.categoryTv);
+
+        //loadImgFromUrl(model, holder); //MyApplication.loadImgFromUrl 08. 12:05
+        //loadImgSize(model, holder); MyApplication.loadPdfSize()08/ *:07
 
         //handle click, show dialog with options 1) Edit, 2) Delete
         holder.moreBtn.setOnClickListener(new View.OnClickListener() {
@@ -101,12 +111,24 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
             }
         });
 
+        //handle click, open vocabulary details page, pass vocabulary id to get the details
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, VocabularyDetailActivity.class);
+                intent.putExtra("vocabularyId", vocabularyId);
+                context.startActivity(intent);
+            }
+        });
+
     }
+
 
     private void moreOptionDialog(ModelVocabulary model, HolderVocabAdmin holder) {
 
         String vocabularyId = model.getId();
         String vocabularyUrl = model.getUrl(); //7. 22:22
+        String enTitle = model.getEnglish();
 
         //options to show in dialog
         String[] options = {"Edit", "Delete"};
@@ -123,66 +145,21 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
                             Intent intent = new Intent(context, VocabEditActivity.class);
                             intent.putExtra("vocabularyId", vocabularyId);
                             context.startActivity(intent);
-
                         }
                         else if (which==1)
                         {
                             //Delete clicked
-                            deleteVocabulary(model, holder);
+                            MyApplication.deleteVocabulary(
+                                    context,
+                                    ""+vocabularyId,
+                                    ""+vocabularyUrl,
+                                    ""+enTitle
+                            );
+                            //deleteVocabulary(model, holder);
                         }
-
                     }
                 })
                 .show();
-
-    }
-
-
-    private void deleteVocabulary(ModelVocabulary model, HolderVocabAdmin holder) {
-        String vocabularyId = model.getId();
-        String vocabularyUrl = model.getUrl();
-        String vocabularyEnTitle = model.getEnglish();
-
-        Log.d(TAG, "deleteVocabulary: Deleting...");
-
-        Log.d(TAG, "deleteVocabulary: Deleting from storage...");
-        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(vocabularyUrl);
-        storageReference.delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Log.d(TAG, "onSuccess: Deleted from storage...");
-                        Log.d(TAG, "onSuccess: Now deleting info from db...");
-
-                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Vocabulary");
-                        reference.child(vocabularyId)
-                                .removeValue()
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        Log.d(TAG, "onSuccess: Deleted from db...");
-                                        Toast.makeText(context, "Vocabulary deleted successfully", Toast.LENGTH_SHORT).show();
-
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailure: Failed to delete from db due to "+e.getMessage());
-                                        Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                    }
-                                });
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: Failed to delete from storage due to "+e.getMessage());
-                Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
     }
 
@@ -216,53 +193,53 @@ public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.Ho
 //                });
 //    }
 
-    private void loadImgFromUrl(ModelVocabulary model, HolderVocabAdmin holder) {
-        // using url we can get file and its metadata from firebase storage
-        String imgUrl = model.getUrl();
-        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(imgUrl);
-        ref.getBytes(MAX_BYTES_IMG)
-                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        Log.d(TAG,"onSuccess: "+model.getEnglish()+ " successfully got the file");
-                        //set to img view 46:34
-
-
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG,"onFailure: failed getting img from url due to " +e.getMessage());
-                    }
-                });
-    }
-
-    private void loadCategory(ModelVocabulary model, HolderVocabAdmin holder) {
-        //get category using categoryId
-
-        String categoryId = model.getCategoryId();
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
-        ref.child(categoryId)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        //get category
-                        String category = ""+snapshot.child("category").getValue();
-                        //set category text view
-                        //49:43
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-    }
+//    private void loadImgFromUrl(ModelVocabulary model, HolderVocabAdmin holder) {
+//        // using url we can get file and its metadata from firebase storage
+//        String imgUrl = model.getUrl();
+//        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(imgUrl);
+//        ref.getBytes(MAX_BYTES_IMG)
+//                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
+//                    @Override
+//                    public void onSuccess(byte[] bytes) {
+//                        Log.d(TAG,"onSuccess: "+model.getEnglish()+ " successfully got the file");
+//                        //set to img view 46:34
+//
+//
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.d(TAG,"onFailure: failed getting img from url due to " +e.getMessage());
+//                    }
+//                });
+//    }
+//
+//    private void loadCategory(ModelVocabulary model, HolderVocabAdmin holder) {
+//        //get category using categoryId
+//
+//        String categoryId = model.getCategoryId();
+//
+//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
+//        ref.child(categoryId)
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        //get category
+//                        String category = ""+snapshot.child("category").getValue();
+//                        //set category text view
+//                        //49:43
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+//
+//    }
 
     @Override
     public int getItemCount() {

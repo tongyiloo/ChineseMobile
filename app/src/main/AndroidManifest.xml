@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseMobile">
-        <activity android:name=".VocabEditActivity"></activity>
+        <activity android:name=".VocabularyDetailActivity"></activity>
+        <activity android:name=".VocabEditActivity" />
         <activity android:name=".VocabListAdminActivity" />
         <activity android:name=".VocabAddActivity" />
         <activity android:name=".VocabularyCategoryAddActivity" />

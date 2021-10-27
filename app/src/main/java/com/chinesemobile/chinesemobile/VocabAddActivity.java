@@ -185,7 +185,7 @@ public class VocabAddActivity extends AppCompatActivity {
 
         String uid = firebaseAuth.getUid();
 
-        //setup data to upload
+        //setup data to upload, also add view count, download count while adding vocab
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", ""+uid);
         hashMap.put("id", ""+timestamp);
@@ -195,6 +195,7 @@ public class VocabAddActivity extends AppCompatActivity {
         hashMap.put("categoryId", selectedCategoryId);
         hashMap.put("url", ""+uploadedVocabUrl);
         hashMap.put("timestamp", timestamp);
+        hashMap.put("viewCounts", 0); //08 2:19
 
         //db reference: DB > Vocabulary (line 146) 43:29 Books
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Vocabulary");

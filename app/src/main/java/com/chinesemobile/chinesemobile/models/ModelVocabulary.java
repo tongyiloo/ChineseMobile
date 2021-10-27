@@ -3,14 +3,15 @@ package com.chinesemobile.chinesemobile.models;
 public class ModelVocabulary {
     //variables
     String uid, id, english, chinese, pinyin, categoryId, url;
-    long timestamp;
+    long timestamp, viewsCount;
 
     //empty constructor, required for firebase
     public ModelVocabulary() {
     }
 
     //constructor with all params
-    public ModelVocabulary(String uid, String id, String english, String chinese, String pinyin, String categoryId, String url, long timestamp) {
+
+    public ModelVocabulary(String uid, String id, String english, String chinese, String pinyin, String categoryId, String url, long timestamp, long viewsCount) {
         this.uid = uid;
         this.id = id;
         this.english = english;
@@ -19,6 +20,7 @@ public class ModelVocabulary {
         this.categoryId = categoryId;
         this.url = url;
         this.timestamp = timestamp;
+        this.viewsCount = viewsCount;
     }
 
 
@@ -86,5 +88,13 @@ public class ModelVocabulary {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public long getViewsCount() {
+        return viewsCount;
+    }
+
+    public void setViewsCount(long viewsCount) {
+        this.viewsCount = viewsCount;
     }
 }
