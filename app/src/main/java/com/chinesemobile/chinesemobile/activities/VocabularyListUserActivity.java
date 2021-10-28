@@ -51,11 +51,10 @@ public class VocabularyListUserActivity extends AppCompatActivity {
         binding.tabLayout.setupWithViewPager(binding.viewPager);
 
         //handle click, logout
-        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                checkUser();
+                onBackPressed();
             }
         });
     }
@@ -171,7 +170,7 @@ public class VocabularyListUserActivity extends AppCompatActivity {
             //logged in, get user info
             String email = firebaseUser.getEmail();
             //set in textview of toolbar
-            binding.subTitleTv.setText(email);
+            //binding.subTitleTv.setText(email);
         }
     }
 }

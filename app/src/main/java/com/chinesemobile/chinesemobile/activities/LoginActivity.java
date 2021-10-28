@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -109,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                         String userType = ""+snapshot.child("userType").getValue();
                         //check user type
                         if (userType.equals("user")){
-                            startActivity(new Intent(LoginActivity.this, VocabularyListUserActivity.class));
+                            startActivity(new Intent(LoginActivity.this, HomeUserActivity.class));
                             finish();
                         }else if (userType.equals("admin")){
                             startActivity(new Intent(LoginActivity.this, DashboardAdminActivity.class));

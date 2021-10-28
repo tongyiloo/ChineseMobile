@@ -65,8 +65,6 @@ public class VocabAddActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         loadVocabCategories();
 
-
-
         //handle click , go to previous activity
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

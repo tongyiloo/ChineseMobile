@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -42,7 +43,7 @@ public class SplashActivity extends AppCompatActivity {
         if (firebaseUser == null){
             //user not logged in
             //start main screen
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            startActivity(new Intent(SplashActivity.this, HomeUserActivity.class));
             finish();//finish this activity
         }
         else {
@@ -56,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
                             String userType = ""+snapshot.child("userType").getValue();
                             //check user type
                             if (userType.equals("user")){
-                                startActivity(new Intent(SplashActivity.this, DashboardUserActivity.class));
+                                startActivity(new Intent(SplashActivity.this, HomeUserActivity.class));
                                 finish();
                             }else if (userType.equals("admin")){
                                 startActivity(new Intent(SplashActivity.this, DashboardAdminActivity.class));

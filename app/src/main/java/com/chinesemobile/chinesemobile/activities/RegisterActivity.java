@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -154,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                         binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                         //since user account is create so start dashboard of user
-                        startActivity(new Intent(RegisterActivity.this, VocabularyListUserActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, HomeUserActivity.class));
                         finish();
                     }
                 })
