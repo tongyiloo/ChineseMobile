@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DashboardUserActivity">
+    android:background="@color/light_purple"
+    tools:context=".activities.VocabularyListUserActivity">
 
     <RelativeLayout
         android:id="@+id/toolbarRL"
@@ -48,6 +49,28 @@
     </RelativeLayout>
 
     <!--Tabs-->
-    
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbarRL"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/dark_orange"
+        app:tabUnboundedRipple="false"/>
+
+    <!--ViewPager: Swipe/Show/Change fragment-->
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabLayout"/>
+
 
 </RelativeLayout>
+

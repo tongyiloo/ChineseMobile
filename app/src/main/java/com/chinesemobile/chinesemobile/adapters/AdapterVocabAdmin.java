@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,32 +11,18 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chinesemobile.chinesemobile.MyApplication;
-import com.chinesemobile.chinesemobile.VocabEditActivity;
+import com.chinesemobile.chinesemobile.activities.VocabEditActivity;
 import com.chinesemobile.chinesemobile.VocabularyDetailActivity;
 import com.chinesemobile.chinesemobile.databinding.RowVocabAdminBinding;
 import com.chinesemobile.chinesemobile.filters.FilterVocabularyAdmin;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
-import com.google.android.gms.auth.api.signin.internal.Storage;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageMetadata;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
-import static com.chinesemobile.chinesemobile.Constants.MAX_BYTES_IMG;
 
 public class AdapterVocabAdmin extends RecyclerView.Adapter<AdapterVocabAdmin.HolderVocabAdmin> implements Filterable {
 

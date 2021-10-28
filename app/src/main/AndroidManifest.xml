@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseMobile">
-        <activity android:name=".VocabularyDetailActivity"></activity>
-        <activity android:name=".VocabEditActivity" />
-        <activity android:name=".VocabListAdminActivity" />
-        <activity android:name=".VocabAddActivity" />
-        <activity android:name=".VocabularyCategoryAddActivity" />
-        <activity android:name=".DashboardAdminActivity" />
-        <activity android:name=".DashboardUserActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activities.VocabularyListUserActivity" />
+        <activity android:name=".VocabularyDetailActivity" />
+        <activity android:name=".activities.VocabEditActivity" />
+        <activity android:name=".activities.VocabListAdminActivity" />
+        <activity android:name=".activities.VocabAddActivity" />
+        <activity android:name=".activities.VocabularyCategoryAddActivity" />
+        <activity android:name=".activities.DashboardAdminActivity" />
+        <activity android:name=".activities.DashboardUserActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

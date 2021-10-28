@@ -1,4 +1,4 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.chinesemobile.chinesemobile.adapters.AdapterVocabAdmin;
-import com.chinesemobile.chinesemobile.databinding.ActivityVocabAddBinding;
 import com.chinesemobile.chinesemobile.databinding.ActivityVocabListAdminBinding;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
 import com.google.firebase.database.DataSnapshot;

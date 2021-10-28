@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="0dp"
+    app:contentPadding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/vocabRl"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="140dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:background="@color/gray02">-->
+
+            <!--Vocab view pdf 06 9:08-->
+
+
+            <!--Progress-->
+
+<!--        </RelativeLayout>-->
+
+        <TextView
+            android:id="@+id/cnTitleTv"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="Chinese Word"
+            android:maxLines="1"/>
+
+        <TextView
+            android:id="@+id/enTitleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cnTitleTv"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:textSize="18dp"
+            android:textColor="@color/gray02"
+            android:text="English Word"
+            />
+
+        <TextView
+            android:id="@+id/pinyinTv"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/cnTitleTv"
+            android:layout_marginLeft="10dp"
+            android:text="Pinyin"
+            android:maxLines="1"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

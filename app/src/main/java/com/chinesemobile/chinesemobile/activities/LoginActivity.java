@@ -1,6 +1,5 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -110,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                         String userType = ""+snapshot.child("userType").getValue();
                         //check user type
                         if (userType.equals("user")){
-                            startActivity(new Intent(LoginActivity.this, DashboardUserActivity.class));
+                            startActivity(new Intent(LoginActivity.this, VocabularyListUserActivity.class));
                             finish();
                         }else if (userType.equals("admin")){
                             startActivity(new Intent(LoginActivity.this, DashboardAdminActivity.class));

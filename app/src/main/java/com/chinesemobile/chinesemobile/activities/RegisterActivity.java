@@ -1,12 +1,9 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PatternMatcher;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
@@ -157,7 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
                         binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
                         //since user account is create so start dashboard of user
-                        startActivity(new Intent(RegisterActivity.this, DashboardUserActivity.class));
+                        startActivity(new Intent(RegisterActivity.this, VocabularyListUserActivity.class));
                         finish();
                     }
                 })

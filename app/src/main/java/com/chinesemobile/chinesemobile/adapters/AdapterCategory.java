@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chinesemobile.chinesemobile.VocabListAdminActivity;
+import com.chinesemobile.chinesemobile.activities.VocabListAdminActivity;
 import com.chinesemobile.chinesemobile.filters.FilterCategory;
 import com.chinesemobile.chinesemobile.models.ModelCategory;
 import com.chinesemobile.chinesemobile.databinding.RowCategoryBinding;
