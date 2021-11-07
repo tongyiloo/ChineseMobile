@@ -124,11 +124,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
-                    android:src="@drawable/ic_audio01_white"
-                    android:background="@drawable/shape_circle"
+                    android:background="@drawable/btn_shadow_speaker"
                     android:layout_below="@id/enTitleTv"
                     android:layout_centerHorizontal="true"
                     android:padding="10dp"
+                    android:elevation="10dp"
+                    android:layout_marginBottom="30dp"
                     />
 
 

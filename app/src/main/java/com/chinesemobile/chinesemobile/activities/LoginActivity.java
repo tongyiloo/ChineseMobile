@@ -54,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
                 validateData();
             }
         });
+
+
     }
 
     private String email = "", password = "";

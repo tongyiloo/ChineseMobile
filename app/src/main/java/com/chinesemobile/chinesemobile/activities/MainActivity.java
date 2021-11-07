@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         binding.skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, DashboardUserActivity.class));
+                startActivity(new Intent(MainActivity.this, HomeUserActivity.class));
             }
         });
     }

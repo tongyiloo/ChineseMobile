@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_purple"
+    tools:context=".activities.ChinesePinyinActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/light_purple">
+
+        <!--BackBtn-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_black"/>
+
+        <!--toolbar title-->
+        <TextView
+            android:id="@+id/categoryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Pronunciation"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!---->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp">
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/charImgView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_intro_pinyin_icon"
+                    />
+
+                <TextView
+                    android:id="@+id/chineseLgTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/charImgView"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Pinyin"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/pinyinTv01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/chineseLgTv"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineHeight="22sp"
+                    android:text="@string/pinyin01"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/chineseTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pinyinTv01"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Pronunciation and Tones"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/pinyinTV02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/chineseTv"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineHeight="22sp"
+                    android:text="@string/pinyin02"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+
+
+                <RelativeLayout
+                    android:id="@+id/pinyinTones"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_below="@id/pinyinTV02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageButton
+                        android:id="@+id/pinyin01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ma1_pinyin"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/btn_shadow"/>
+
+
+                    <ImageButton
+                        android:id="@+id/pinyin02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/pinyin01"
+                        android:src="@drawable/ic_ma1_pinyin"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/btn_shadow"/>
+
+                    <ImageButton
+                        android:id="@+id/pinyin03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ma1_pinyin"
+                        android:layout_toEndOf="@+id/pinyin02"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/btn_shadow"/>
+
+                    <ImageButton
+                        android:id="@+id/pinyin04"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_ma1_pinyin"
+                        android:layout_toEndOf="@+id/pinyin03"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/btn_shadow"/>
+
+                    <TextView
+                        android:id="@+id/ma1Tv"
+                        android:layout_alignLeft="@id/pinyin01"
+                        android:layout_alignRight="@id/pinyin01"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/pinyin01"
+                        android:textSize="24dp"
+                        android:text="妈"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma2Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/pinyin02"
+                        android:layout_alignRight="@id/pinyin02"
+                        android:gravity="center"
+                        android:layout_below="@id/pinyin02"
+                        android:layout_toEndOf="@+id/ma1Tv"
+                        android:textSize="24dp"
+                        android:text="麻"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma3Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/pinyin03"
+                        android:layout_alignRight="@id/pinyin03"
+                        android:gravity="center"
+                        android:layout_below="@id/pinyin03"
+                        android:layout_toEndOf="@+id/ma2Tv"
+                        android:textSize="24dp"
+                        android:text="马"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma4Tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/pinyin04"
+                        android:layout_alignRight="@id/pinyin04"
+                        android:gravity="center"
+                        android:layout_below="@id/pinyin04"
+                        android:layout_toEndOf="@+id/ma3Tv"
+                        android:textSize="24dp"
+                        android:text="骂"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/ma1Tv1"
+                        android:layout_alignLeft="@id/pinyin01"
+                        android:layout_alignRight="@id/pinyin01"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ma2Tv"
+                        android:textSize="16dp"
+                        android:text="Mother"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma1Tv2"
+                        android:layout_alignLeft="@id/pinyin02"
+                        android:layout_alignRight="@id/pinyin02"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ma2Tv"
+                        android:textSize="16dp"
+                        android:text="Hemp"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma1Tv3"
+                        android:layout_alignLeft="@id/pinyin03"
+                        android:layout_alignRight="@id/pinyin03"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ma3Tv"
+                        android:textSize="16dp"
+                        android:text="Horse"
+                        android:textColor="@color/black"/>
+                    <TextView
+                        android:id="@+id/ma1Tv4"
+                        android:layout_alignLeft="@id/pinyin04"
+                        android:layout_alignRight="@id/pinyin04"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ma4Tv"
+                        android:textSize="16dp"
+                        android:text="To scold"
+                        android:textColor="@color/black"/>
+
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/toChinesePinyinTv"
+                    android:layout_below="@id/pinyinTones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineHeight="22sp"
+                    android:layout_alignParentEnd="true"
+                    android:text="To Chinese Character"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:drawablePadding="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:drawableEndCompat="@drawable/ic_next_black"
+                    android:clickable="true" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
