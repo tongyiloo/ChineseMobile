@@ -2,10 +2,12 @@ package com.chinesemobile.chinesemobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 
+import com.chinesemobile.chinesemobile.activities.ChineseIntroductionActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityChineseCharacterBinding;
 import com.chinesemobile.chinesemobile.databinding.ActivityChinesePinyin1Binding;
 
@@ -65,6 +67,13 @@ public class ChinesePinyin1Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String chinese = "骂";
                 txtToSpeech.speak(chinese, TextToSpeech.QUEUE_FLUSH, null, null);
+            }
+        });
+
+        binding.toChCharTv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ChinesePinyin1Activity.this, HomeUserActivity.class));
             }
         });
 

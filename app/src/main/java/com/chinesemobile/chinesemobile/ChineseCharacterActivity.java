@@ -30,7 +30,7 @@ public class ChineseCharacterActivity extends AppCompatActivity {
         binding.toChinesePinyinTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChineseCharacterActivity.this, ChinesePinyinActivity.class));
+                startActivity(new Intent(ChineseCharacterActivity.this, ChinesePinyin1Activity.class));
             }
         });
 

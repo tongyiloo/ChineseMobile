@@ -275,30 +275,27 @@
                         android:textSize="16dp"
                         android:text="To scold"
                         android:textColor="@color/black"/>
-
-
                 </RelativeLayout>
 
 
                 <TextView
-                    android:id="@+id/toChinesePinyinTv"
+                    android:id="@+id/toChCharTv1"
                     android:layout_below="@id/pinyinTones"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="25dp"
                     android:layout_marginEnd="20dp"
+                    android:layout_alignParentBottom="true"
                     android:fontFamily="@font/roboto_regular"
                     android:lineHeight="22sp"
                     android:layout_alignParentEnd="true"
-                    android:text="To Chinese Character"
+                    android:text="To Homepage"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:drawablePadding="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="30dp"
                     app:drawableEndCompat="@drawable/ic_next_black"
                     android:clickable="true" />
-
 
             </RelativeLayout>
 
