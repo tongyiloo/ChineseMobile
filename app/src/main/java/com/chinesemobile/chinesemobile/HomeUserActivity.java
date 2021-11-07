@@ -1,5 +1,6 @@
 package com.chinesemobile.chinesemobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -7,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.chinesemobile.chinesemobile.activities.ChineseIntroductionActivity;
@@ -22,6 +24,11 @@ import com.chinesemobile.chinesemobile.databinding.ActivityHomeUserBinding;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeUserActivity extends AppCompatActivity {
 
@@ -36,13 +43,31 @@ public class HomeUserActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         firebaseAuth = FirebaseAuth.getInstance();
+        loadUserInfo();
         checkUser();
 
         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                checkUser();
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeUserActivity.this);
+                builder.setTitle("Logout")
+                        .setMessage("Are you sure you want to logout?")
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //begin delete
+                                firebaseAuth.signOut();
+                                checkUser();
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -76,6 +101,24 @@ public class HomeUserActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeUserActivity.this, ChinesePinyin1Activity.class));
             }
         });
+    }
+
+    private void loadUserInfo() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.child(firebaseAuth.getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String name = ""+snapshot.child("name").getValue();
+                        binding.nameTv.setText(name);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     private void checkUser() {

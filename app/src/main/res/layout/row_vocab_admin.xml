@@ -13,19 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        <RelativeLayout-->
-<!--            android:id="@+id/vocabRl"-->
-<!--            android:layout_width="100dp"-->
-<!--            android:layout_height="140dp"-->
-<!--            android:layout_marginEnd="5dp"-->
-<!--            android:background="@color/gray02">-->
-
-            <!--Vocab view pdf 06 9:08-->
-
-
-            <!--Progress-->
-
-<!--        </RelativeLayout>-->
 
         <TextView
             android:id="@+id/cnTitleTv"

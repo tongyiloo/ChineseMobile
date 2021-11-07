@@ -30,7 +30,7 @@
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/skipBtn"
+        android:layout_above="@id/toRegisterBtn"
         android:layout_marginBottom="10dp"
         android:text="Login"
         android:background="@drawable/shape_button01"
@@ -38,10 +38,10 @@
         android:textColor="@color/white"/>
 
     <Button
-        android:id="@+id/skipBtn"
+        android:id="@+id/toRegisterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue Without Login"
+        android:text="Register"
         android:layout_alignParentBottom="true"
         android:background="@drawable/shape_button02"
         app:backgroundTint="@null"
