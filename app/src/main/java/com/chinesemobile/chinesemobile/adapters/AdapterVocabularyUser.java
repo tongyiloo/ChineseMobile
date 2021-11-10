@@ -68,7 +68,6 @@ public class AdapterVocabularyUser extends RecyclerView.Adapter<AdapterVocabular
         holder.cnTitleTv.setText(cnTitle);
         holder.pinyinTv.setText(pinyin);
 
-        // 11. 38. Myapplication load pdf
 
         //handle click, open vocabulary details page, pass vocabulary id to get the details
         holder.itemView.setOnClickListener(new View.OnClickListener() {

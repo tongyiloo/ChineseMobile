@@ -40,11 +40,10 @@ public class VocabAddActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
 
-
     //arraylist to hold vocab categories
     private ArrayList<String> categoryTitleArrayList, categoryIdArrayList;
 
-    //uri of the picke img
+    //uri of the picked img
     private Uri imgUri = null;
 
 
@@ -282,15 +281,6 @@ public class VocabAddActivity extends AppCompatActivity {
                 })
                 .show();
     }
-
-//    private void imgPickIntent() {
-//        Log.d(TAG,"imgPickIntent: Starting pdf pick Intent");
-//
-//        Intent intent = new Intent();
-//        intent.setType("image/jpeg"); // 19:16
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(Intent.createChooser(intent, "Select Image"), IMG_PICK_CODE);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

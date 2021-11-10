@@ -72,10 +72,9 @@ public class VocabularyListUserActivity extends AppCompatActivity {
                 //clear before adding to list
                 categoryArrayList.clear();
 
-                //Load Categories - Static e.g. All, Most Viewed, Most Download
+                //Load Categories
                 //Add data to model
                 ModelCategory modelAll = new ModelCategory("01", "All", "", "1");
-                //ModelCategory mostView = new ModelCategory("01", "All", "", "1"); (11. 18:40)
 
                 //add models to list
                 categoryArrayList.add(modelAll);
@@ -87,12 +86,6 @@ public class VocabularyListUserActivity extends AppCompatActivity {
                         ""+modelAll.getUid()
                 ), modelAll.getCategory());
 
-//                  most view
-//                viewPagerAdapter.addFragment(VocabularyUserFragment.newInstance(
-//                        ""+.getId(),
-//                        ""+modelAll.getCategory(),
-//                        ""+modelAll.getUid()
-//                ), modelAll.getCategory());
 
                 //refresh list
                 viewPagerAdapter.notifyDataSetChanged();
@@ -169,8 +162,7 @@ public class VocabularyListUserActivity extends AppCompatActivity {
         else {
             //logged in, get user info
             String email = firebaseUser.getEmail();
-            //set in textview of toolbar
-            //binding.subTitleTv.setText(email);
+
         }
     }
 }

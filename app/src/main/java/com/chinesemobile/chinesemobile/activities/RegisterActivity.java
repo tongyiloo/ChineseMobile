@@ -29,9 +29,6 @@ public class RegisterActivity extends AppCompatActivity {
     //firebase auth
     private FirebaseAuth firebaseAuth;
 
-    //progress dialog
-    //private ProgressDialog progressDialog;
-
     ProgressBar progressBar;
 
     @Override
@@ -42,11 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         //init firebase auth
         firebaseAuth = FirebaseAuth.getInstance();
-
-        //setup progress dialog
-        //progressDialog = new ProgressDialog(this);
-        //progressDialog.setTitle("Loading...");
-        //progressDialog.setCanceledOnTouchOutside(false);
 
         binding.progressBar.setVisibility(View.GONE);
 
@@ -101,9 +93,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void createUserAccount() {
-        //show progress
-        //progressDialog.setMessage("Creating account...");
-        //progressDialog.show();
         binding.progressBar.setVisibility(View.VISIBLE);
         Toast.makeText(this, "Creating account", Toast.LENGTH_SHORT).show();
 

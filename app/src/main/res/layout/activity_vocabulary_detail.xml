@@ -57,19 +57,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/vocabImgView"-->
-<!--                    android:layout_marginTop="50dp"-->
-<!--                    android:layout_centerHorizontal="true"-->
-<!--                    android:layout_width="200dp"-->
-<!--                    android:layout_height="200dp"-->
-<!--                    android:background="@drawable/shape_imgview01"-->
-<!--                    android:src="@drawable/ic_vocabimg_gray"/>-->
-<!--                <View-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent"-->
-<!--                    android:background="@drawable/shape_rect01"/>-->
-                <!--vocab image-->
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/vocabImgView"
                     android:layout_width="200dp"
@@ -78,10 +65,9 @@
                     android:layout_marginTop="50dp"
                     android:background="@color/white"
                     android:src="@drawable/ic_vocabimg_gray"
-
                     app:shapeAppearance="@style/styleRoundedCornersImage"
                     />
-
+                
                 <TextView
                     android:id="@+id/cnTitleTv"
                     android:layout_width="wrap_content"

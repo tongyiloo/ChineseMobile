@@ -47,9 +47,6 @@ public class MyApplication extends Application {
 
     public static void deleteVocabulary(Context context, String vocabularyId, String vocabularyUrl, String enTitle) {
         String TAG = "DELETE_BOK_TAG";
-//        String vocabularyId = model.getId();
-//        String vocabularyUrl = model.getUrl();
-//        String vocabularyEnTitle = model.getEnglish();
 
         Log.d(TAG, "deleteVocabulary: Deleting...");
 
@@ -90,31 +87,6 @@ public class MyApplication extends Application {
         });
 
     }
-
-    //loadPdfSize (08. 6:52)
-
-    //loadImgFromUrl (08. 10:40) 08. 9:27
-//    public static void loadImgFromUrl(String imgUrl, String enTitle, ImageView imageView){
-//        String TAG = "IMG_LOAD";
-//
-//        StorageReference ref = FirebaseStorage.getInstance().getReferenceFromUrl(imgUrl);
-//
-//
-//        ref.getBytes(MAX_BYTES_IMG)
-//                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
-//                    @Override
-//                    public void onSuccess(byte[] bytes) {
-//                        imageView.fromBytes(bytes);
-//
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Log.d(TAG, "onFailure: failed getting img from url due to "+e.getMessage());
-//                    }
-//                });
-//    }
 
     //loadCategory(08. 12:50)
     public static void loadCategory(String categoryId, TextView categoryTv){

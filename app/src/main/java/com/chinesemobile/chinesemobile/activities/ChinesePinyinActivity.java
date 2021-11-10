@@ -41,15 +41,6 @@ public class ChinesePinyinActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-//        binding.toChinesePinyinTv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(ChinesePinyinActivity.this, ChinesePinyinActivity.class));
-//            }
-//        });
     }
 
     @Override

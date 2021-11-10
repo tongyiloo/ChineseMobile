@@ -56,20 +56,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp">
 
-
-                <!--                <View-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="match_parent"-->
-                <!--                    android:background="@drawable/shape_rect01"/>-->
-                <!--vocab image-->
-
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/charImgView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_intro_char"
                     />
 

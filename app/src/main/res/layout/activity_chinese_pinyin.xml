@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_intro_pinyin_icon"
                     />
 

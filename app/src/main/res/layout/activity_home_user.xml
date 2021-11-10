@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_purple"
     tools:context=".HomeUserActivity">
 
     <LinearLayout
@@ -16,7 +17,7 @@
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@color/white"
+        android:background="@color/light_purple"
         >
 
         <TextView
