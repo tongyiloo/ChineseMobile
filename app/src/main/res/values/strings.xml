@@ -8,14 +8,13 @@
     <string name="intro02">The Chinese language is a logographic language system, unlike English, which uses an alphabetic system.</string>
     <string name="intro03">There are two written forms in the Mandarin Chinese language: Chinese characters and Hanyu Pinyin.</string>
     <string name="intro04">There are two types of Chinese character writing systems in the Chinese language, namely Traditional Chinese and Simplified Chinese.</string>
-    <string name="char01">Strokes are the basic components in Chinese Characters writing. Chinese radicals and characters are formed with different
+    <string name="char01">Strokes are the basic components in Chinese characters writing. Chinese radicals and characters are formed with different
         combinations of strokes ranging from one to more strokes.</string>
     <string name="char02">The combination of different characters will become a new word and give a different meaning. Many Mandarin characters are generally written in
         either component or compound characters.</string>
     <string name="char03">For example, 女(woman) and 子(child) are component characters that are used to form other compound characters, 好(good). </string>
     <string name="pinyin01">Each Chinese character has a transcribe of English alphabets known as Hanyu Pinyin or Pinyin. For example, 马 (character) has a Pinyin form of “mǎ”. </string>
     <string name="pinyin02">Besides, each syllable and character have four different tones that carry one or more meaning. For example, 妈 (mother), 麻(hemp), 马(horse), 骂(to scold) are all pronounced with Pinyin “ma” but with different tones</string>
-
 
 
 </resources>

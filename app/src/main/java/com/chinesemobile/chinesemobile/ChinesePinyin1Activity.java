@@ -70,13 +70,6 @@ public class ChinesePinyin1Activity extends AppCompatActivity {
             }
         });
 
-        binding.toChCharTv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ChinesePinyin1Activity.this, HomeUserActivity.class));
-            }
-        });
-
 
     }
 

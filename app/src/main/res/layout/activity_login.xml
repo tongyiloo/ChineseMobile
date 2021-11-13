@@ -52,7 +52,6 @@
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_above="@id/noAccountTv"
         android:layout_marginTop="255dp">
 
         <RelativeLayout
@@ -104,29 +103,17 @@
                     android:inputType="textPassword"
                     android:padding="15dp"
                     android:textColor="@color/black"
-
                     android:textColorHint="@color/gray01"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--ForgotPassword-->
-            <TextView
-                android:id="@+id/forgotTv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/passwordTil"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:padding="10dp"
-                android:text="Forgot Password"
-                android:textColor="@color/white"/>
 
             <!--Login Button-->
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/forgotTv"
+                android:layout_below="@id/passwordTil"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
                 app:backgroundTint="@color/light_orange"
@@ -143,22 +130,26 @@
                 android:layout_centerHorizontal="true"
                 android:indeterminateTint="@color/white"/>
 
+            <!--No Account, Register-->
+            <TextView
+                android:id="@+id/noAccountTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/progress_bar"
+                android:layout_centerHorizontal="true"
+                android:paddingBottom="30dp"
+                android:textSize="18sp"
+                android:text="@string/new_user_sign_up"
+                android:textColor="@color/white"/>
+
 
         </RelativeLayout>
 
     </ScrollView>
 
-    <!--No Account, Register-->
-    <TextView
-        android:id="@+id/noAccountTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:padding="30dp"
-        android:textSize="18sp"
-        android:text="@string/new_user_sign_up"
-        android:textColor="@color/white"/>
+
 
 
 </RelativeLayout>

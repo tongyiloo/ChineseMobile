@@ -180,27 +180,11 @@
                     android:layout_below="@id/chineseLgTv05"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="30dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/ic_intro_icon03" />
 
-                <TextView
-                    android:id="@+id/toChineseCharTv"
-                    android:layout_below="@id/introIcon03"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/roboto_regular"
-                    android:lineHeight="22sp"
-                    android:layout_alignParentEnd="true"
-                    android:text="@string/to_char"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:drawablePadding="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:drawableEndCompat="@drawable/ic_next_black"
-                    android:clickable="true" />
+
 
 
             </RelativeLayout>

@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:background="@color/white"
+                    android:background="@android:color/transparent"
                     android:src="@drawable/ic_intro_pinyin_icon"
                     />
 
@@ -277,25 +277,53 @@
                         android:textColor="@color/black"/>
                 </RelativeLayout>
 
-
-                <TextView
-                    android:id="@+id/toChCharTv1"
+                <RelativeLayout
+                    android:id="@+id/pinyinToneMark"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
                     android:layout_below="@id/pinyinTones"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:fontFamily="@font/roboto_regular"
-                    android:lineHeight="22sp"
-                    android:layout_alignParentEnd="true"
-                    android:text="To Homepage"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:drawablePadding="10dp"
-                    android:layout_marginBottom="30dp"
-                    app:drawableEndCompat="@drawable/ic_next_black"
-                    android:clickable="true" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/toneTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="Mandarin Tone Marks"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/toneMarksIV"
+                        android:layout_below="@id/toneTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/ic_tone_mark"/>
+
+                    <TextView
+                        android:id="@+id/toneTv2"
+                        android:layout_below="@id/toneMarksIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Tips: Tone marks are put above vowels."
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="12dp" />
+
+                </RelativeLayout>
+
+
+
 
             </RelativeLayout>
 

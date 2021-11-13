@@ -16,6 +16,7 @@ import com.chinesemobile.chinesemobile.activities.ChinesePinyinActivity;
 import com.chinesemobile.chinesemobile.activities.DashboardAdminActivity;
 import com.chinesemobile.chinesemobile.activities.LoginActivity;
 import com.chinesemobile.chinesemobile.activities.MainActivity;
+import com.chinesemobile.chinesemobile.activities.SplashActivity;
 import com.chinesemobile.chinesemobile.activities.VocabEditActivity;
 import com.chinesemobile.chinesemobile.activities.VocabularyListUserActivity;
 import com.chinesemobile.chinesemobile.adapters.AdapterVocabAdmin;
@@ -43,8 +44,8 @@ public class HomeUserActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         firebaseAuth = FirebaseAuth.getInstance();
-        loadUserInfo();
         checkUser();
+        //loadUserInfo();
 
         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +102,8 @@ public class HomeUserActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeUserActivity.this, ChinesePinyin1Activity.class));
             }
         });
+
+
     }
 
     private void loadUserInfo() {
@@ -109,8 +112,10 @@ public class HomeUserActivity extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String name = ""+snapshot.child("name").getValue();
-                        binding.nameTv.setText(name);
+                        if (snapshot.exists()) {
+                            String name = ""+ snapshot.child("name").getValue();
+                            binding.nameTv.setText(name);
+                        }
 
                     }
 
@@ -129,11 +134,22 @@ public class HomeUserActivity extends AppCompatActivity {
             finish();
         }
         else {
-            //logged in, get user info
-            String email = firebaseUser.getEmail();
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+            ref.child(firebaseUser.getUid())
+                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            //get user type
+                            String name = ""+ snapshot.child("name").getValue();
+                            binding.nameTv.setText(name);
 
-            //set in textview of toolbar
-            binding.nameTv.setText(email);
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+
+                        }
+                    });
         }
     }
 

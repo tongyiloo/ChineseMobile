@@ -29,14 +29,6 @@ public class ChineseIntroductionActivity extends AppCompatActivity {
             }
         });
 
-       binding.toChineseCharTv.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(ChineseIntroductionActivity.this, ChineseCharacterActivity.class));
-           }
-       });
-
-
     }
 
 
