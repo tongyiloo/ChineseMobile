@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityRegisterBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

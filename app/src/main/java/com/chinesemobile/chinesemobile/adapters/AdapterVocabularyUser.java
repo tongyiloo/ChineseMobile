@@ -13,9 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chinesemobile.chinesemobile.MyApplication;
-import com.chinesemobile.chinesemobile.VocabularyDetailActivity;
+import com.chinesemobile.chinesemobile.activities.VocabularyDetailActivity;
 import com.chinesemobile.chinesemobile.databinding.RowVocabUserBinding;
-import com.chinesemobile.chinesemobile.filters.FilterVocabularyAdmin;
 import com.chinesemobile.chinesemobile.filters.FilterVocabularyUser;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
 

@@ -1,4 +1,4 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,21 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 
-import com.chinesemobile.chinesemobile.activities.ChineseIntroductionActivity;
-import com.chinesemobile.chinesemobile.activities.ChinesePinyinActivity;
-import com.chinesemobile.chinesemobile.activities.DashboardAdminActivity;
-import com.chinesemobile.chinesemobile.activities.LoginActivity;
-import com.chinesemobile.chinesemobile.activities.MainActivity;
-import com.chinesemobile.chinesemobile.activities.SplashActivity;
-import com.chinesemobile.chinesemobile.activities.VocabEditActivity;
-import com.chinesemobile.chinesemobile.activities.VocabularyListUserActivity;
-import com.chinesemobile.chinesemobile.adapters.AdapterVocabAdmin;
-import com.chinesemobile.chinesemobile.databinding.ActivityDashboardUserBinding;
 import com.chinesemobile.chinesemobile.databinding.ActivityHomeUserBinding;
-import com.chinesemobile.chinesemobile.models.ModelVocabulary;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

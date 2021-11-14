@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

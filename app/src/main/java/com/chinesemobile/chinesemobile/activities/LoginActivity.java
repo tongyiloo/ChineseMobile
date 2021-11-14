@@ -9,7 +9,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
-import com.chinesemobile.chinesemobile.HomeUserActivity;
 import com.chinesemobile.chinesemobile.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

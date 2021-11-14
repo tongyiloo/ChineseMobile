@@ -2,13 +2,10 @@ package com.chinesemobile.chinesemobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 
-import com.chinesemobile.chinesemobile.ChineseCharacterActivity;
-import com.chinesemobile.chinesemobile.databinding.ActivityChineseCharacterBinding;
 import com.chinesemobile.chinesemobile.databinding.ActivityChinesePinyinBinding;
 
 import java.util.Locale;

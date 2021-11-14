@@ -1,17 +1,16 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.chinesemobile.chinesemobile.MyApplication;
+import com.chinesemobile.chinesemobile.R;
 import com.chinesemobile.chinesemobile.databinding.ActivityVocabularyDetailBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
