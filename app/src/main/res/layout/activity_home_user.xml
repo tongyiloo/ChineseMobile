@@ -145,50 +145,6 @@
 
         </HorizontalScrollView>
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/introCharPinyin"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        >-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/introHomeBtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_intro_button_big"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginBottom="30dp"-->
-<!--            />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/charHomeBtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_home_char_button"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/pinyinHomeBtn"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_home_pinyin_button"-->
-<!--            android:layout_marginEnd="10dp"-->
-<!--            android:background="@android:color/transparent"-->
-<!--            android:layout_alignParentEnd="true"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:paddingBottom="30dp"-->
-<!--            android:layout_below="@id/charHomeBtn"-->
-<!--            />-->
-
-<!--    </RelativeLayout>-->
-
         <RelativeLayout
             android:id="@+id/vocRL"
             android:layout_width="match_parent"
