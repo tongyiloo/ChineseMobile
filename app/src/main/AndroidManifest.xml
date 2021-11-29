@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChineseMobile">
+        <activity android:name=".activities.SavedVocabularyActivity"></activity>
+        <activity android:name=".ProfileEditActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.VocabularyDetailsActivity" />
         <activity android:name=".activities.ChinesePinyin1Activity" />
         <activity android:name=".activities.ChinesePinyinActivity" />
         <activity android:name=".activities.ChineseCharacterActivity" />

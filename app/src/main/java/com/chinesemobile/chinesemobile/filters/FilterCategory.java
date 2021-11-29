@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class FilterCategory extends Filter {
 
-    //arraylist in which we want to search
+    //arraylist to search
     ArrayList<ModelCategory> filterList;
     //adapter in which filter need to be implemented
     AdapterCategory adapterCategory;
@@ -29,7 +29,7 @@ public class FilterCategory extends Filter {
             constraint = constraint.toString().toUpperCase();
             ArrayList<ModelCategory> filteredModels = new ArrayList<>();
             for (int i=0; i<filterList.size(); i++){
-                //validddate
+                //validate
                 if (filterList.get(i).getCategory().toUpperCase().contains(constraint)){
                     //add to filtered list
                     filteredModels.add(filterList.get(i));

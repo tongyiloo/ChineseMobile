@@ -9,15 +9,11 @@ import java.util.ArrayList;
 
 public class FilterVocabularyUser extends Filter {
 
-
-    //arraylist in which we want to search
+    //arraylist to search
     ArrayList<ModelVocabulary> filterList;
     //adapter in which filter need to be implemented
     AdapterVocabularyUser adapterVocabularyUser;
-
     //constructor
-
-
     public FilterVocabularyUser(ArrayList<ModelVocabulary> filterList, AdapterVocabularyUser adapterVocabularyUser) {
         this.filterList = filterList;
         this.adapterVocabularyUser = adapterVocabularyUser;
@@ -28,8 +24,7 @@ public class FilterVocabularyUser extends Filter {
         FilterResults results = new FilterResults();
         //value should not be null and empty
         if (constraint!= null || constraint.length() > 0){
-            //not null nor empty
-            //change to uppercase or lower case sensitive
+            //not null nor empty, change to uppercase or lower case sensitive
             constraint = constraint.toString().toUpperCase();
             ArrayList<ModelVocabulary> filteredModels = new ArrayList<>();
             for (int i=0; i<filterList.size(); i++){

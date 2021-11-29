@@ -60,8 +60,8 @@ public class VocabularyListUserActivity extends AppCompatActivity {
     }
 
     private void setupViewPagerAdapter(ViewPager viewPager){
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,this);
 
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,this);
         categoryArrayList = new ArrayList<>();
 
         //load categories from firebase
@@ -71,25 +71,18 @@ public class VocabularyListUserActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //clear before adding to list
                 categoryArrayList.clear();
-
-                //Load Categories
-                //Add data to model
+                //Load Categories, and data to model
                 ModelCategory modelAll = new ModelCategory("01", "All", "", "1");
-
                 //add models to list
                 categoryArrayList.add(modelAll);
-
                 //add data to view pager adapter
                 viewPagerAdapter.addFragment(VocabularyUserFragment.newInstance(
                         ""+modelAll.getId(),
                         ""+modelAll.getCategory(),
                         ""+modelAll.getUid()
                 ), modelAll.getCategory());
-
-
                 //refresh list
                 viewPagerAdapter.notifyDataSetChanged();
-
                 //Now Load from database
                 for (DataSnapshot ds: snapshot.getChildren()){
                     ModelCategory model = ds.getValue(ModelCategory.class);
@@ -103,10 +96,7 @@ public class VocabularyListUserActivity extends AppCompatActivity {
                     //refresh list
                     viewPagerAdapter.notifyDataSetChanged();
                 }
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

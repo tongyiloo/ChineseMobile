@@ -41,9 +41,8 @@ public class VocabularyDetailActivity extends AppCompatActivity {
         vocabularyId = intent.getStringExtra("vocabularyId");
 
         loadVocabularyDetail();
-        //increment book view count whenever this page starts 08. 35:00
 
-        //handle backbtn
+        //handle backBtn
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,8 +58,6 @@ public class VocabularyDetailActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private void loadVocabularyDetail() {
@@ -77,8 +74,6 @@ public class VocabularyDetailActivity extends AppCompatActivity {
                         String url = ""+snapshot.child("url").getValue();
                         String timestamp = ""+snapshot.child("timestamp").getValue();
 
-                        //format date 08. 31:00
-
                         MyApplication.loadCategory(
                                 ""+categoryId,
                                 binding.categoryTv
@@ -93,7 +88,7 @@ public class VocabularyDetailActivity extends AppCompatActivity {
                         //set data
                         binding.enTitleTv.setText(english);
                         binding.cnTitleTv.setText(chinese);
-                        binding.pinyinTv.setText(pinyin); //08 33:20 viewsCount, downloadcounts, date
+                        binding.pinyinTv.setText(pinyin);
 
                         binding.speakBtn.setOnClickListener(new View.OnClickListener() {
                             @Override

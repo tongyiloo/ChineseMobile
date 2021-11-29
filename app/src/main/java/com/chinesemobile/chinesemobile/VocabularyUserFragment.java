@@ -76,14 +76,13 @@ public class VocabularyUserFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentVocabularyUserBinding.inflate(LayoutInflater.from(getContext()), container, false);
 
-        Log.d(TAG, "onCreateView: Category: "+category);
         if (category.equals("All")){
             //load all vocabulary
-            loadAllBooks();
+            loadAllVocabulary();
         }
         else {
             //load selected category books
-            loadCategorizedBooks();
+            loadCategorizedVocabulary();
         }
 
         //search
@@ -114,7 +113,7 @@ public class VocabularyUserFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private void loadAllBooks() {
+    private void loadAllVocabulary() {
         //init list
         vocabularyArrayList = new ArrayList<>();
 
@@ -133,7 +132,6 @@ public class VocabularyUserFragment extends Fragment {
                 adapterVocabularyUser = new AdapterVocabularyUser(getContext(), vocabularyArrayList);
                 //set adapter to recyclerview
                 binding.VocabRv.setAdapter(adapterVocabularyUser);
-
             }
 
             @Override
@@ -143,7 +141,7 @@ public class VocabularyUserFragment extends Fragment {
         });
     }
 
-    private void loadCategorizedBooks() {
+    private void loadCategorizedVocabulary() {
         //init list
         vocabularyArrayList = new ArrayList<>();
 
@@ -163,7 +161,6 @@ public class VocabularyUserFragment extends Fragment {
                     adapterVocabularyUser = new AdapterVocabularyUser(getContext(), vocabularyArrayList);
                     //set adapter to recyclerview
                     binding.VocabRv.setAdapter(adapterVocabularyUser);
-
                 }
 
                 @Override

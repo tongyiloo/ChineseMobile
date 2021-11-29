@@ -42,18 +42,21 @@
 
     <!--All content under scrollview-->
     <ScrollView
+        android:id="@+id/SV"
         android:layout_below="@+id/toolbarRL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp">
 
         <LinearLayout
+            android:id="@+id/LL"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <!---->
             <RelativeLayout
+                android:id="@+id/RL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -67,7 +70,7 @@
                     android:src="@drawable/ic_vocabimg_gray"
                     app:shapeAppearance="@style/styleRoundedCornersImage"
                     />
-                
+
                 <TextView
                     android:id="@+id/cnTitleTv"
                     android:layout_width="wrap_content"
@@ -117,9 +120,6 @@
                     android:elevation="10dp"
                     android:layout_marginBottom="30dp"
                     />
-
-
-
 
             </RelativeLayout>
 

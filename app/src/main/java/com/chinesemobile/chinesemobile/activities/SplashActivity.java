@@ -52,9 +52,7 @@ public class SplashActivity extends AppCompatActivity {
                     .addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot snapshot) {
-                            //get user type
                             String userType = ""+snapshot.child("userType").getValue();
-                            //check user type
                             if (userType.equals("user")){
                                 startActivity(new Intent(SplashActivity.this, HomeUserActivity.class));
                                 finish();

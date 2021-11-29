@@ -48,6 +48,7 @@ public class ChinesePinyin1Activity extends AppCompatActivity {
                 txtToSpeech.speak(chinese, TextToSpeech.QUEUE_FLUSH, null, null);
             }
         });
+
         binding.pinyin02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

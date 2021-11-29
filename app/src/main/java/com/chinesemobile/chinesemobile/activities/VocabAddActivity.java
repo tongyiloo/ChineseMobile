@@ -110,7 +110,6 @@ public class VocabAddActivity extends AppCompatActivity {
         titleEng = binding.titleEnglishEt.getText().toString().trim();
         titleCn = binding.chineseEt.getText().toString().trim();
         pinyin = binding.pinyinEt.getText().toString().trim();
-        //category = binding.categoryTv.getText().toString().trim();
 
         //validate data
         if (TextUtils.isEmpty(titleEng)){
@@ -135,13 +134,11 @@ public class VocabAddActivity extends AppCompatActivity {
     }
 
     private void uploadVocabToStorage() {
-        //Step 2: Upload Vocab to firebase storage
+        //Upload Vocab to firebase storage
         binding.progressBar.setVisibility(View.VISIBLE);
-        Log.d(TAG,"uploadVocabToStorage: uploading to storage...");
 
         Toast.makeText(this,"Uploading vocabulary details...", Toast.LENGTH_SHORT).show();
 
-        //timestamp
         long timestamp = System.currentTimeMillis();
 
         //path in firebase storage
@@ -152,14 +149,10 @@ public class VocabAddActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.d(TAG,"onSuccess: vocab uploaded to Storage...");
-                        Log.d(TAG,"onSuccess: getting url");
-
-                        //get pdf url
+                        //get img url
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                         while (!uriTask.isSuccessful());
                         String uploadedVocabUrl = ""+uriTask.getResult();
-
                         //upload to firebase db
                         uploadVocabInfoToDB(uploadedVocabUrl, timestamp);
 
@@ -168,7 +161,6 @@ public class VocabAddActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.d(TAG,"onFailure: vocab upload failed due to"+e.getMessage());
                         Toast.makeText(VocabAddActivity.this, "Vocab upload failed due to "+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

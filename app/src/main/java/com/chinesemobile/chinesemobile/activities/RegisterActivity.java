@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private String name = "", email = "", password = "";
     private void validateData() {
-        /*Before creating account, data validation*/
+        /*Before creating account, validate data*/
         //get data
         name = binding.nameEt.getText().toString().trim();
         email = binding.emailEt.getText().toString().trim();
@@ -107,7 +107,6 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(Exception e) {
-                        //progressDialog.dismiss();
                         binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -115,7 +114,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void updateUserInfo() {
-        //progressDialog.setMessage("Saving User Information");
         //timestamp
         long timestamp = System.currentTimeMillis();
 
@@ -127,8 +125,8 @@ public class RegisterActivity extends AppCompatActivity {
         hashMap.put("uid", uid);
         hashMap.put("email", email);
         hashMap.put("name", name);
-        hashMap.put("profileImage", ""); // add empty, will do later
-        hashMap.put("userType", "user"); // possible value are user, admin: will make amin manually in firebase realtime database by changing this value
+        hashMap.put("profileImage", "");
+        hashMap.put("userType", "user");
         hashMap.put("timestamp", timestamp);
 
         //set data to db
@@ -139,10 +137,8 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         // data added to db
-                        //progressDialog.dismiss();
                         binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, "Account created successfully", Toast.LENGTH_SHORT).show();
-                        //since user account is create so start dashboard of user
                         startActivity(new Intent(RegisterActivity.this, HomeUserActivity.class));
                         finish();
                     }
@@ -150,7 +146,6 @@ public class RegisterActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(Exception e) {
-                        //progressDialog.dismiss();
                         binding.progressBar.setVisibility(View.GONE);
                         Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }

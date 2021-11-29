@@ -4,6 +4,7 @@ public class ModelVocabulary {
     //variables
     String uid, id, english, chinese, pinyin, categoryId, url;
     long timestamp, viewsCount;
+    boolean save;
 
     //empty constructor, required for firebase
     public ModelVocabulary() {
@@ -11,7 +12,7 @@ public class ModelVocabulary {
 
     //constructor with all params
 
-    public ModelVocabulary(String uid, String id, String english, String chinese, String pinyin, String categoryId, String url, long timestamp, long viewsCount) {
+    public ModelVocabulary(String uid, String id, String english, String chinese, String pinyin, String categoryId, String url, long timestamp, long viewsCount, boolean save) {
         this.uid = uid;
         this.id = id;
         this.english = english;
@@ -21,6 +22,7 @@ public class ModelVocabulary {
         this.url = url;
         this.timestamp = timestamp;
         this.viewsCount = viewsCount;
+        this.save = save;
     }
 
 
@@ -96,5 +98,13 @@ public class ModelVocabulary {
 
     public void setViewsCount(long viewsCount) {
         this.viewsCount = viewsCount;
+    }
+
+    public boolean isSave() {
+        return save;
+    }
+
+    public void setSave(boolean save) {
+        this.save = save;
     }
 }

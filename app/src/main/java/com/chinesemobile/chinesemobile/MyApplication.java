@@ -14,6 +14,7 @@ import com.chinesemobile.chinesemobile.adapters.AdapterVocabAdmin;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +24,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
 
 import static com.chinesemobile.chinesemobile.Constants.MAX_BYTES_IMG;
@@ -46,18 +48,12 @@ public class MyApplication extends Application {
     }
 
     public static void deleteVocabulary(Context context, String vocabularyId, String vocabularyUrl, String enTitle) {
-        String TAG = "DELETE_BOK_TAG";
 
-        Log.d(TAG, "deleteVocabulary: Deleting...");
-
-        Log.d(TAG, "deleteVocabulary: Deleting from storage...");
         StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(vocabularyUrl);
         storageReference.delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Log.d(TAG, "onSuccess: Deleted from storage...");
-                        Log.d(TAG, "onSuccess: Now deleting info from db...");
 
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Vocabulary");
                         reference.child(vocabularyId)
@@ -65,14 +61,12 @@ public class MyApplication extends Application {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Log.d(TAG, "onSuccess: Deleted from db...");
                                         Toast.makeText(context, "Vocabulary deleted successfully", Toast.LENGTH_SHORT).show();
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Log.d(TAG, "onFailure: Failed to delete from db due to "+e.getMessage());
                                         Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 });
@@ -81,14 +75,12 @@ public class MyApplication extends Application {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.d(TAG, "onFailure: Failed to delete from storage due to "+e.getMessage());
                 Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
     }
 
-    //loadCategory(08. 12:50)
     public static void loadCategory(String categoryId, TextView categoryTv){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Categories");
         ref.child(categoryId)
@@ -107,6 +99,66 @@ public class MyApplication extends Application {
 
                     }
                 });
+    }
+
+
+
+    public static void addToBookmark(Context context, String vocabularyId){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null){
+            Toast.makeText(context, "You are not logged in", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            long timestamp = System.currentTimeMillis();
+
+            //setup data to add in firebase db of current user for bookmark vocab
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("vocabularyId", ""+vocabularyId);
+            hashMap.put("timestamp", ""+timestamp);
+
+            //save to db
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+            ref.child(firebaseAuth.getUid()).child("Bookmarks").child(vocabularyId)
+                    .setValue(hashMap)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context, "Added to your bookmark list", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "Failed to add to bookamrk due to "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
+
+    public static void removeFromBookmark(Context context, String vocabularyId){
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null){
+            Toast.makeText(context, "You are not logged in", Toast.LENGTH_SHORT).show();
+        }
+        else {
+
+            //remove from db
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+            ref.child(firebaseAuth.getUid()).child("Bookmarks").child(vocabularyId)
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(context, "Removed from your bookmark list", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "Failed to remove from bookmark due to "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
     }
 
 }
