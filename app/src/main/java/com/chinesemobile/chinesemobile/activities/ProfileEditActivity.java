@@ -1,19 +1,14 @@
-package com.chinesemobile.chinesemobile;
+package com.chinesemobile.chinesemobile.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.chinesemobile.chinesemobile.activities.ProfileActivity;
-import com.chinesemobile.chinesemobile.activities.VocabEditActivity;
-import com.chinesemobile.chinesemobile.databinding.ActivityProfileBinding;
 import com.chinesemobile.chinesemobile.databinding.ActivityProfileEditBinding;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

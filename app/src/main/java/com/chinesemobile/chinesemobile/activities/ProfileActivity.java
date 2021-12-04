@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.chinesemobile.chinesemobile.ProfileEditActivity;
 import com.chinesemobile.chinesemobile.adapters.AdapterSavedVocab;
 import com.chinesemobile.chinesemobile.databinding.ActivityProfileBinding;
 import com.chinesemobile.chinesemobile.models.ModelVocabulary;
@@ -93,6 +92,13 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+        binding.helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, HelpActivity.class));
+            }
+        });
+
 
     }
 
@@ -107,8 +113,8 @@ public class ProfileActivity extends AppCompatActivity {
                         String timestamp = ""+ snapshot.child("timestamp").getValue();
                         String uid = ""+ snapshot.child("uid").getValue();
 
-                        binding.emailTv.setText("Email: " + email);
-                        binding.nameTv.setText("Name: " + name);
+                        binding.emailTv.setText(email);
+                        binding.nameTv.setText(name);
                     }
 
                     @Override
@@ -130,46 +136,4 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-//    private void loadSavedVocabulary() {
-//        //init list
-//        vocabularyArrayList1 = new ArrayList<>();
-//
-//        //checkUser();
-//
-//        //load saved books from db
-//        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-//        ref.child(firebaseAuth.getUid()).child("Bookmarks")
-//                .addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        // clear list before starting adding data
-//                        vocabularyArrayList1.clear();
-//                        for (DataSnapshot ds: snapshot.getChildren()){
-//                            //get vocab id
-//                            String vocabularyId = ""+ds.child("vocabularyId").getValue();
-//
-//                            //set id to model
-//                            ModelVocabulary modelVocabulary = new ModelVocabulary();
-//                            modelVocabulary.setId(vocabularyId);
-//
-//                            //add model to list
-//                            vocabularyArrayList1.add(modelVocabulary);
-//                        }
-//
-//                        // set number of saved vocabularies
-//                        binding.numberBookmarkTv.setText(""+vocabularyArrayList1.size());
-//                        //setup adapter
-//                        adapterSavedVocab = new AdapterSavedVocab(ProfileActivity.this, vocabularyArrayList1);
-//                        // set adapter to recyclerview
-//                        binding.VocabRv.setAdapter(adapterSavedVocab);
-//
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//    }
 }

@@ -19,4 +19,6 @@
     <string name="pinyin02">Besides, each syllable and character have four different tones that carry one or more meaning. For example, 妈 (mother), 麻(hemp),
         马(horse), 骂(to scold) are all pronounced with Pinyin “ma” but with different tones</string>
 
+    <string name="help">Please feel free to email at ChineseMobile support team for general inquires at <u>chinesemobilecm@gmail.com</u>.</string>
+
 </resources>

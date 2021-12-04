@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HelpActivity">
+
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@drawable/shape_toolbar01">
+
+        <!--BackBtn-->
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_back_white"/>
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="Help"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"/>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@id/toolbarRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/RL3"
+                android:background="@color/light_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textSize="22sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Talk to ChineseMobile Support"/>
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="16sp"
+                    android:layout_below="@id/tv1"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Email:"/>
+
+                <TextView
+                    android:id="@+id/tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="16sp"
+                    android:layout_below="@id/tv2"
+                    android:textColor="@color/black"
+                    android:text="@string/help"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RL4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/RL3">
+
+                <TextView
+                    android:id="@+id/ttv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="1. How to use search"/>
+
+                <TextView
+                    android:id="@+id/ttv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:layout_below="@id/ttv1"
+                    android:textColor="@color/black"
+                    android:text="You can search on the search bar for specific vocabulary in the list."/>
+
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_below="@id/ttv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="400dp"
+                    android:src="@drawable/search"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RL5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/RL4">
+
+                <TextView
+                    android:id="@+id/ttv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="2. How to filter categories"/>
+
+                <TextView
+                    android:id="@+id/ttv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:layout_below="@id/ttv3"
+                    android:textColor="@color/black"
+                    android:text="You can navigate categories by scrolling left or right on the categories section."/>
+
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_below="@id/ttv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="400dp"
+                    android:src="@drawable/cat_all"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/RL6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/RL4">
+
+                <TextView
+                    android:id="@+id/ttv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="3. How to listen or save words"/>
+
+                <TextView
+                    android:id="@+id/ttv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="16sp"
+                    android:layout_below="@id/ttv5"
+                    android:textColor="@color/black"
+                    android:text="You can click on two buttons on the vocabulary details page:
+                                       \n1. Tap on the save icon to save word to saved list and click again to remove from saved list.
+                                       \n2. Tap on the speaker icon to listen to Mandarin pronunciation of the word."/>
+
+
+
+                <ImageView
+                    android:id="@+id/iv3"
+                    android:layout_below="@id/ttv6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="600dp"
+                    android:src="@drawable/vocab_detail"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginTop="10dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

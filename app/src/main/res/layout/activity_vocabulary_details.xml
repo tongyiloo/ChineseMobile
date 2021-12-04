@@ -11,7 +11,7 @@
         android:id="@+id/toolbarRL"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="@drawable/shape_toolbar02">
+        android:background="@drawable/shape_toolbar01">
 
         <!--BackBtn-->
         <ImageButton
@@ -81,7 +81,7 @@
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:text="华语/中文"/>
 
             <TextView
@@ -93,7 +93,7 @@
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:text="Pinyin/Pronunciation"/>
 
             <TextView
@@ -105,7 +105,7 @@
                 android:layout_marginTop="30dp"
                 android:textColor="@color/black"
                 android:fontFamily="@font/roboto_medium"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:text="English Meaning"/>
 
 
